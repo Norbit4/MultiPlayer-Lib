@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'fun.norbit'
+group 'fun.norbit.multiplayerlib'
 version '1.0-SNAPSHOT'
 
 repositories {
