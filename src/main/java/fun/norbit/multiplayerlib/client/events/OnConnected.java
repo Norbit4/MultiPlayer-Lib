@@ -12,7 +12,7 @@ public class OnConnected extends ClientListener {
     public void onMessageEvent(GameClient gameClient, Packet packet) {
         if(packet.getChannel().equals("CONNECTED_CHANNEL")){
 
-            String clientUUIDString = (String) packet.getObject(String.class);
+            String clientUUIDString =  packet.getObject(String.class);
 
             UUID clientUUID = UUID.fromString(clientUUIDString);
 

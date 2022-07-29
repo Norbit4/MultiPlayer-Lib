@@ -18,7 +18,7 @@ public class Packet implements Serializable {
         return channel;
     }
 
-    public Object getObject(Class<?> c) {
+    public <T> T getObject(Class<T> c) {
         return GsonFormat.objectFromString(jsonString, c);
     }
 }

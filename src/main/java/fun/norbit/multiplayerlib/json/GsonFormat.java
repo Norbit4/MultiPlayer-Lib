@@ -13,7 +13,8 @@ public class GsonFormat {
         return gson.toJson(o);
     }
 
-    public static Object objectFromString(String jsonString, Class<?> c){
-        return  gson.fromJson(jsonString, c);
+    public static <T> T objectFromString(String jsonString, Class<T> c){
+
+        return gson.fromJson(jsonString, c);
     }
 }
