@@ -1,5 +1,15 @@
 # MultiPlayer-Lib
-Library for creating multiplayer games
+🎮 Library for easier creation of multiplayer games
+
+**Server**
+- [Start](https://github.com/Norbit4/MultiPlayer-Lib#server "Click")
+- [Listeners](https://github.com/Norbit4/MultiPlayer-Lib#listeners "Click")
+- [Commands](https://github.com/Norbit4/MultiPlayer-Lib#commands "Click")
+
+**Client**
+- [Start](https://github.com/Norbit4/MultiPlayer-Lib#client "Click")
+- [Listeners](https://github.com/Norbit4/MultiPlayer-Lib#listeners-1 "Click")
+
 
 #
 <h3>Server</h3>
@@ -63,7 +73,7 @@ public class GameServerListener extends ServerListener {
 - Join/Leave listener
 
 ```java
-public class ClientListener extends ServerListener {
+public class ServerListener extends ServerListener {
 
   @Override
   public void onJoinEvent(ServerClient client) {
@@ -148,7 +158,48 @@ Packet packet = new Packet(channel, message);
 
 <h4>Listeners</h4>
 
+*Creating listeners*
 
+- Message listener
+
+```java
+public class MessageListener extends ClientListener {
+
+    @Override
+    public void onMessageEvent(GameClient gameClient, Packet packet) {
+
+        if(packet.getChannel().equals("ALERT_CHANNEL")) {
+            String message = packet.getObject(String.class);
+
+            System.out.println(message);
+        }
+    }
+}
+```
+
+- Join/Leave listener
+
+```java
+  public class ExampleListener extends ClientListener {
+
+      @Override
+      public void onConnect(GameClient client) {
+          System.out.println("Connected");
+      }
+
+      @Override
+      public void onDisconnect(GameClient client) {
+          System.out.println("Disconnected");
+      }
+  }
+```
+
+*Registering listeners*
+
+```java
+gameClient.registerListener(new ExampleListener());
+gameClient.registerListener(new MessageListener());
+```
 
 
 
