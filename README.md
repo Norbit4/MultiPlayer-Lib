@@ -1,6 +1,8 @@
 # MultiPlayer-Lib
 🎮 Library for easier creation of multiplayer games
 
+[![](https://jitpack.io/v/Norbit4/MultiPlayer-Lib.svg)](https://jitpack.io/#Norbit4/MultiPlayer-Lib)
+
 **Server**
 - [Start](https://github.com/Norbit4/MultiPlayer-Lib#server "Click")
 - [Listeners](https://github.com/Norbit4/MultiPlayer-Lib#listeners "Click")
