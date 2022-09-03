@@ -28,6 +28,7 @@ public class GameServer {
         this.port = port;
         this.commandExecutorHashMap = new HashMap<>();
         servers.add(this);
+        enableJoinLeaveMessages = true;
     }
 
     public void start(){
@@ -122,7 +123,7 @@ public class GameServer {
         clientsList.forEach(client -> client.sendObject(object));
     }
 
-    public void sendObject(Object object, ConnectedClient connectedClient){
+    public <T extends Packet> void sendObject(T object, ConnectedClient connectedClient){
 
         connectedClient.sendObject(object);
     }
@@ -131,7 +132,7 @@ public class GameServer {
         commandExecutorHashMap.put(cmdName, commandExecutor);
     }
 
-    public void setEnableJoinAndLeaveMessages(boolean enableJoinLeaveMessages) {
+    public void joinAndLeaveMessages(boolean enableJoinLeaveMessages) {
         this.enableJoinLeaveMessages = enableJoinLeaveMessages;
     }
 
